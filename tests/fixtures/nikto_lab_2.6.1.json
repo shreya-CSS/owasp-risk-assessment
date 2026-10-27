@@ -1,0 +1,89 @@
+[
+   {
+      "end_time" : "2026-10-27 20:25:57 +0530",
+      "host" : "127.0.0.1",
+      "ip" : "127.0.0.1",
+      "port" : 8008,
+      "server_banner" : null,
+      "start_time" : "2026-10-27 20:23:52 +0530",
+      "vulnerabilities" : [
+         {
+            "id" : "000029",
+            "method" : "GET",
+            "msg" : "Cookie sessionid created without the httponly flag.",
+            "references" : "https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies",
+            "url" : "/"
+         },
+         {
+            "id" : "000287",
+            "method" : "GET",
+            "msg" : "Retrieved x-powered-by header: PHP/5.6.40 (simulated).",
+            "references" : "",
+            "url" : "/"
+         },
+         {
+            "id" : "013587",
+            "method" : "GET",
+            "msg" : "Suggested security header missing: content-security-policy.",
+            "references" : "https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP",
+            "url" : "/"
+         },
+         {
+            "id" : "013587",
+            "method" : "GET",
+            "msg" : "Suggested security header missing: permissions-policy.",
+            "references" : "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy",
+            "url" : "/"
+         },
+         {
+            "id" : "013587",
+            "method" : "GET",
+            "msg" : "Suggested security header missing: referrer-policy.",
+            "references" : "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy",
+            "url" : "/"
+         },
+         {
+            "id" : "013587",
+            "method" : "GET",
+            "msg" : "Suggested security header missing: strict-transport-security.",
+            "references" : "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security",
+            "url" : "/"
+         },
+         {
+            "id" : "013587",
+            "method" : "GET",
+            "msg" : "Suggested security header missing: x-content-type-options.",
+            "references" : "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options",
+            "url" : "/"
+         },
+         {
+            "id" : "600652",
+            "method" : "HEAD",
+            "msg" : "Python/3.12.10 appears to be outdated (current is at least 3.14.6).",
+            "references" : "",
+            "url" : "/"
+         },
+         {
+            "id" : "600625",
+            "method" : "HEAD",
+            "msg" : "PHP/5.6.40 appears to be outdated (current is at least 8.5.8).",
+            "references" : "",
+            "url" : "/"
+         },
+         {
+            "id" : "750500",
+            "method" : "GET",
+            "msg" : "Directory indexing found.",
+            "references" : "CWE-548",
+            "url" : "/files/"
+         },
+         {
+            "id" : "001669",
+            "method" : "GET",
+            "msg" : "This might be interesting.",
+            "references" : "",
+            "url" : "/files/"
+         }
+      ]
+   }
+]

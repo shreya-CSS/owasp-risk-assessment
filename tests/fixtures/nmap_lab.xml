@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nmaprun scanner="nmap" args="nmap -sT -Pn -p 22,8008 -sV -oX - 127.0.0.1" version="7.80">
+<host><status state="up"/><address addr="127.0.0.1" addrtype="ipv4"/>
+<ports>
+<port protocol="tcp" portid="22"><state state="closed"/><service name="ssh"/></port>
+<port protocol="tcp" portid="8008"><state state="open"/><service name="http" product="BaseHTTPServer" version="0.6" extrainfo="Python 3.12.10"/></port>
+</ports></host>
+</nmaprun>

@@ -1,0 +1,16 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/*.db
+data/*.db-*
+reports/*
+!reports/.gitkeep
+data/.gitkeep
+docs/black_book/build/
+data/_video_tmp/
+docs/
+prj-template-main/
+PROJECT_STATE.md
+.ruff_cache/

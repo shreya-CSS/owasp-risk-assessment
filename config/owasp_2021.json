@@ -1,0 +1,101 @@
+{
+  "edition": "2021",
+  "title": "OWASP Top 10:2021",
+  "scanner_tag_prefix": "OWASP_2021_",
+  "categories": {
+    "A01": {
+      "name": "Broken Access Control",
+      "impact_weight": 10,
+      "guidance": "Deny by default, enforce access control server-side on every request, disable directory listing, and log access-control failures.",
+      "cwes": [22, 23, 35, 59, 200, 201, 219, 264, 275, 276, 284, 285, 352, 359, 377, 402, 425, 441, 497, 538, 540, 548, 552, 566, 601, 639, 651, 668, 706, 862, 863, 913, 922, 1275]
+    },
+    "A02": {
+      "name": "Cryptographic Failures",
+      "impact_weight": 5,
+      "guidance": "Serve all traffic over TLS, enable HSTS, mark cookies Secure, and use current algorithms and key lengths.",
+      "cwes": [261, 296, 310, 319, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 335, 336, 337, 338, 340, 347, 523, 720, 757, 759, 760, 780, 818, 916]
+    },
+    "A03": {
+      "name": "Injection",
+      "impact_weight": 10,
+      "guidance": "Use parameterised queries and safe APIs, validate input server-side with allow-lists, and contextually encode output.",
+      "cwes": [20, 74, 75, 77, 78, 79, 80, 83, 87, 88, 89, 90, 91, 93, 94, 95, 96, 97, 98, 99, 100, 113, 116, 138, 184, 470, 471, 564, 610, 643, 644, 652, 917]
+    },
+    "A04": {
+      "name": "Insecure Design",
+      "impact_weight": 5,
+      "guidance": "Apply threat modelling and secure design patterns; do not rely on client-side controls.",
+      "cwes": [73, 183, 209, 213, 235, 256, 257, 266, 269, 280, 311, 312, 313, 316, 419, 430, 434, 444, 451, 472, 501, 522, 525, 539, 579, 598, 602, 642, 646, 650, 653, 656, 657, 799, 807, 840, 841, 927, 1021, 1173]
+    },
+    "A05": {
+      "name": "Security Misconfiguration",
+      "impact_weight": 0,
+      "guidance": "Use a hardened, repeatable configuration: send security headers, remove version banners and unused features/services, and review CORS policies.",
+      "cwes": [2, 11, 13, 15, 16, 260, 315, 520, 526, 537, 541, 547, 611, 614, 756, 776, 942, 1004, 1032, 1174]
+    },
+    "A06": {
+      "name": "Vulnerable and Outdated Components",
+      "impact_weight": 5,
+      "guidance": "Inventory components and versions, remove unused dependencies, and patch from official sources promptly.",
+      "cwes": [937, 1035, 1104]
+    },
+    "A07": {
+      "name": "Identification and Authentication Failures",
+      "impact_weight": 5,
+      "guidance": "Use MFA where possible, strong session management, rate limiting, and no default or hard-coded credentials.",
+      "cwes": [255, 259, 287, 288, 290, 294, 295, 297, 300, 302, 304, 306, 307, 346, 384, 521, 613, 620, 640, 798, 940, 1216]
+    },
+    "A08": {
+      "name": "Software and Data Integrity Failures",
+      "impact_weight": 5,
+      "guidance": "Verify integrity of code and data (signatures, SRI), and avoid deserialising untrusted data.",
+      "cwes": [345, 353, 426, 494, 502, 565, 784, 829, 830, 915]
+    },
+    "A09": {
+      "name": "Security Logging and Monitoring Failures",
+      "impact_weight": 0,
+      "guidance": "Log security-relevant events with enough context, protect logs from injection, and alert on suspicious activity.",
+      "cwes": [117, 223, 532, 778]
+    },
+    "A10": {
+      "name": "Server-Side Request Forgery (SSRF)",
+      "impact_weight": 10,
+      "guidance": "Validate and allow-list destination URLs server-side, and block requests to internal address ranges.",
+      "cwes": [918]
+    }
+  },
+  "rules": [
+    {"issue_key_prefix": "header-missing:", "category": "A05", "status": "mapped",
+     "basis": "Project rule: a missing HTTP security header is a hardening/configuration gap (A05)."},
+    {"issue_key_prefix": "disclosure:", "category": "A05", "status": "mapped",
+     "basis": "Project rule: software/version banners are default-configuration information leaks (A05)."},
+    {"issue_key_prefix": "cookie:no-secure", "category": "A02", "status": "mapped",
+     "basis": "Project rule: a session cookie sent without the Secure flag can travel in cleartext (A02, CWE-614)."},
+    {"issue_key_prefix": "cookie:", "category": "A05", "status": "mapped",
+     "basis": "Project rule: missing cookie hardening attributes are configuration issues (A05)."},
+    {"issue_key_prefix": "transport:", "category": "A02", "status": "mapped",
+     "basis": "Project rule: content served without TLS exposes data in transit (A02, CWE-319)."},
+    {"issue_key_prefix": "cors:", "category": "A05", "status": "mapped",
+     "basis": "Project rule: permissive CORS policy is a misconfiguration (A05, CWE-942)."},
+    {"issue_key_prefix": "directory-listing", "category": "A01", "status": "mapped",
+     "basis": "Project rule: directory listing exposes files without authorization (A01, CWE-548)."},
+    {"issue_key_prefix": "open-port:", "category": "A05", "status": "potential",
+     "basis": "Potential mapping: an exposed service may be unnecessary (A05). Manual review is needed to confirm."},
+    {"keywords": ["sql injection", "sqli"], "category": "A03", "status": "potential",
+     "basis": "Potential mapping from title keyword 'SQL injection'."},
+    {"keywords": ["cross site scripting", "cross-site scripting", "xss"], "category": "A03", "status": "potential",
+     "basis": "Potential mapping from title keyword 'cross-site scripting'."},
+    {"keywords": ["command injection", "remote code execution"], "category": "A03", "status": "potential",
+     "basis": "Potential mapping from title keyword 'injection/code execution'."},
+    {"keywords": ["directory indexing", "directory listing", "directory browsing"], "category": "A01", "status": "potential",
+     "basis": "Potential mapping from title keyword 'directory listing'."},
+    {"keywords": ["outdated", "end-of-life", "appears to be outdated", "vulnerable version"], "category": "A06", "status": "potential",
+     "basis": "Potential mapping from title keyword indicating an outdated component."},
+    {"keywords": ["default credentials", "default password", "default account"], "category": "A07", "status": "potential",
+     "basis": "Potential mapping from title keyword 'default credentials'."},
+    {"keywords": ["x-frame-options", "x-content-type-options", "content-security-policy", "strict-transport-security", "header is not set", "header is not present", "server banner", "x-powered-by", "http trace", "trace method", "options method", "backup file", "config file"], "category": "A05", "status": "potential",
+     "basis": "Potential mapping from configuration-related keywords in the title."},
+    {"keywords": ["ssrf", "server side request forgery", "server-side request forgery"], "category": "A10", "status": "potential",
+     "basis": "Potential mapping from title keyword 'SSRF'."}
+  ]
+}
